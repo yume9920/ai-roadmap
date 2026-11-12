@@ -88,5 +88,85 @@
 # print("平均值为:",sum(num_list)/len(num_list))#sum求和,len获取列表长度(个数)
 
 
+# numlist1=[19,23,54,64,875,20,109,232,123,54]
+# numlist2=[55,80,72,60,123,54,29,91]
+# #合并列表
+# for i in numlist2:
+#     numlist1.append(i)
+#简化代码:
+    # 解包:将容器解成独立元素用*号
+        # numlist=[*numlist2,*numlist1]
+    # 组包:多个值合并到一个容器
+            # numlist = numlist2+numlist1
+# print(numlist1)
+# #去除重复元素
+# new_list=[]
+# for s in numlist1:
+#     if s not in new_list:
+#             new_list.append(s)
+# print(new_list)
+
+numlist=[]
+for i in range(1,21):
+    numlist.append(i**2)
+print(numlist)#生成1-20的平方列表,秒了
+
+#从下面列表提取所有偶数并计算平方组成新的列表
+numll=[19,23,54,64,87,20,109,232,123,43,26,55,72]
+num=[]
+for s in numll:
+    if s%2==0:
+        num.append(s**2)
+num.sort()
+print(num)#自己完成,可运行
+
+# =================补充:黑马P36-42里有,但我原稿没写到的=================
+# 1.P39 常用方法里没用到四个:index / count / clear / extend
+# index()#查找指定元素的下标,只找第一个,找不到直接报错 s.index(元素)
+# count()#统计指定元素出现几次 s.count(元素)
+# clear()#清空整个列表 s.clear()
+# extend()#把另一个容器的元素逐个取出,加到尾部 s.extend(另一个列表)
+s=[1,2,3,2,4,2]
+print(s.index(2))#1,只找第一个
+print(s.count(2))#3
+#print(s.index(99))#ValueError: 99 is not in list  找不到是报错,不是返回-1
+a=[1,2,3]
+b=[4,5]
+a.extend(b)
+print(a)#[1,2,3,4,5]  元素被逐个拆开加进去
+c=[1,2,3]
+c.append(b)
+print(c)#[1,2,3,[4,5]]  对比:append把b整个当一个元素塞进去
+s.clear()
+print(s)#[]
+#
+# 2.P37 嵌套列表:列表里套列表,下标连续取 s[外层][内层]
+n=[[1,2,3],[4,5,6],[7,8,9]]
+print(n[1])#[4,5,6]
+print(n[1][2])#6
+print(n[-1][-2])#8  反向索引同理
+#
+# 3.while遍历列表(P40案例):靠下标走,必须有i+=1
+s=[10,20,30]
+i=0
+while i<len(s):
+    print(s[i])
+    i+=1
+#
+# 4.解包组包(P41案例),原稿只有注释,补上能跑的
+numlist1=[19,23,54,64,875,20,109,232,123,54]
+numlist2=[55,80,72,60,123,54,29,91]
+numlist=[*numlist1,*numlist2]#解包:两个列表打散成一个
+print(numlist)
+#
+# 5.列表推导式(P42案例):[表达式 for 变量 in 容器 if 条件]
+# 一行代替"空列表+for+append"三步
+num2=[x**2 for x in numll if x%2==0]#就是上面偶数平方那题
+num2.sort()
+print(num2)
+sq=[i**2 for i in range(1,21)]#1-20平方列表也一行
+print(sq)
+
+
 
 
