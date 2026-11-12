@@ -118,7 +118,8 @@ for s in numll:
     if s%2==0:
         num.append(s**2)
 num.sort()
-print(num)#自己完成,可运行
+print(num)#自己完成
+
 
 # =================补充:黑马P36-42里有,但我原稿没写到的=================
 # 1.P39 常用方法里没用到四个:index / count / clear / extend
