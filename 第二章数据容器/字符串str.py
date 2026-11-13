@@ -50,3 +50,14 @@ zifuchuan=input("请输入一个字符串:")
 fanzhuan=zifuchuan[-1::-1]
 if fanzhuan==zifuchuan:
     print("这是回文")
+
+# =========补充:黑马P44有,但我没写到的三个=========
+# join()#用连接符把列表拼成字符串 "连接符".join(列表)
+# index()#查下标,和find一样,但找不到会报错(find是返回-1)
+# isdigit()#判断是否全是数字,返回布尔值(校验输入常用)
+lst=["2026","11","13"]
+print("-".join(lst))#2026-11-13
+print(s.index("yum"))#和find结果一样(注意:字符串里是"yum e",找"yume"不存在,find会返回-1)
+#print(s.index("zzz"))#ValueError!找不到会报错,find才返回-1
+nianling="12345"
+print(nianling.isdigit())#True
