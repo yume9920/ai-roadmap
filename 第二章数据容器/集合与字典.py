@@ -37,6 +37,7 @@
 dict1={"王琳":100,"艾琳":129,}
 # key不能重复,可修改
 # 名称=dict()#空
+# dict={}
 # value可以是任何类型,key不能是可变类型,如list,set,dict
 # key如果重复,后面的值会覆盖前面的值
 # 获取:v=dict["王琳"]
@@ -80,5 +81,6 @@ print(counts)
 # 顺带:列表去重一行(list顺序会变,set无序)
 numlist=[1,2,2,3,3,3]
 print(list(set(numlist)))
+
 
 
