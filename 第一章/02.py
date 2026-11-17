@@ -75,3 +75,46 @@
 #         print("普通三角形")
 # else:
 #     print(f"{a} {b} {c}不能构成三角形")
+
+# ==================== 可运行验证版（用固定值，不卡input） ====================
+print("=" * 40)
+# 算术运算符
+x, y = 7, 2
+print("算术:", x + y, x - y, x * y, x / y, x // y, x % y, x ** y)
+print("优先级:", 2 ** 3 * 2, "=16(幂先算)")
+print("精度:", 0.1 + 0.2, "≠0.3")
+
+# 赋值运算符（注意：原稿第20行写的'num-2是num=num-2'漏了等号，正确是 -=）
+num = 10
+num -= 2          # 等价于 num = num - 2
+num **= 2
+print("赋值后num:", num)
+
+# 比较运算符，返回布尔值
+a, b = 1, 2
+print("比较:", a == b, a != b, a >= b, a <= b)
+
+# 逻辑运算符（原稿第39行'10>=num or num>=20'边界会误判，正确写法如下）
+num = 25
+print("在10-20之外:", num < 10 or num > 20)
+print("链式比较:", 10 <= 15 <= 20)
+print("not取反:", not (num < 10 or num > 20))
+
+# if / elif / else —— 闰年
+for year in (1900, 2000, 2024):
+    if (year % 100 != 0 and year % 4 == 0) or (year % 400 == 0):
+        print(f"{year}是闰年")
+    else:
+        print(f"{year}不是闰年")
+
+# 嵌套 if —— 三角形分类
+a, b, c = 3, 3, 4
+if a + b > c and a + c > b and b + c > a:
+    if a == b and b == c:
+        print("等边三角形")
+    elif a == b or b == c or a == c:
+        print("等腰三角形")
+    else:
+        print("普通三角形")
+else:
+    print("不能构成三角形")

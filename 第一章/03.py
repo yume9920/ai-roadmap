@@ -104,3 +104,54 @@
 #     else :
 #         print("恭喜你你猜对了")
 #         break    自己写的
+
+# ==================== 可运行验证版（原稿全是注释，这里整理成能直接跑） ====================
+print("=" * 40)
+# match 模式匹配
+day = "2"
+match day:
+    case "1":
+        print("match: 周一工作日")
+    case "2" | "3":
+        print("match: 周二三上学日")
+    case _:
+        print("match: 休息")
+
+# while 累加（注意 i+=1 必须和 if 平级，缩进错会死循环）
+total, i = 0, 1
+while i <= 100:
+    if i % 2 == 0:
+        total += i
+    i += 1
+print("while偶数和:", total)
+
+# for + range 三种用法
+print("range(5):", list(range(5)))
+print("range(2,8):", list(range(2, 8)))
+print("range(0,10,2):", list(range(0, 10, 2)))
+
+# for 遍历字符串
+for s in "Python":
+    print(f"元素:{s}", end=" ")
+print()
+
+# 嵌套循环：九九表（原稿自己写的 range(i,10) 是上三角，答案版 range(1,i+1) 是下三角）
+for i in range(1, 10):
+    for s in range(1, i + 1):
+        print(f"{s}x{i}={i * s}", end="\t")
+    print()
+
+# 猜数字：原稿 while True + input 会卡住，这里用固定猜测序列演示逻辑
+import random
+random.seed(42)  # 固定种子，答案可复现
+secret = random.randint(1, 100)
+guesses = [50, 25, 13]  # 模拟输入，避免卡input
+for guess in guesses:
+    if guess > secret:
+        print(f"猜{guess}: 大了")
+    elif guess < secret:
+        print(f"猜{guess}: 小了")
+    else:
+        print(f"猜{guess}: 猜对了")
+        break
+print("答案:", secret)
