@@ -63,11 +63,38 @@ def add_student():
     print("已添加", name)
 
 
+def delete_student():
+    """按姓名删除学生，用 find_student 的返回值判空。"""
+    name = input("要删除的姓名：")
+    stu = find_student(name)
+    if stu is None:
+        print("没找到", name)
+    else:
+        students.remove(stu)
+        print("已删除", name)
+
+
+def failing():
+    """列出有不及格科目的学生。"""
+    found = False
+    for stu in students:
+        bad = []
+        for s in SUBJECTS:
+            if stu[s] < 60:
+                bad.append(s + str(stu[s]))
+        if len(bad) > 0:
+            print(stu["姓名"], "不及格：", " ".join(bad))
+            found = True
+    if not found:
+        print("没有人不及格")
+
+
 def menu():
     """菜单循环。"""
     while True:
         print("")
-        print("1 全部学生   2 查学生   3 排行榜   4 科目统计   5 添加学生   0 退出")
+        print("1 全部学生   2 查学生   3 排行榜   4 科目统计")
+        print("5 添加学生   6 删除学生   7 不及格名单   0 退出")
         choice = input("选一个数字：")
         if choice == "1":
             show_all()
@@ -84,6 +111,10 @@ def menu():
             subject_stats()
         elif choice == "5":
             add_student()
+        elif choice == "6":
+            delete_student()
+        elif choice == "7":
+            failing()
         elif choice == "0":
             print("再见")
             break
